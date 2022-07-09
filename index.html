@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>এস. এস. সি পদার্থবিজ্ঞান</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="bootstrap.css" rel="stylesheet">
+  </head>
+  <body id="body" class="overflow-auto" onload="allBodySec()">
+    <!---///////////-------	  each click preloader  -------///////////--------->
+    <div id="btcClkLoader" class="cPreload d-flex justify-content-center h100vh w-100 align-items-center d-none">
+      <div class="spinner-border text-primary" role="status"></div>
+      <div><p class="text-light text-center p-3">অনুগ্রহ করে অপেক্ষা করুন । লোড হচ্ছে ...</p></div>
+    </div>
+    <div id="preloader" class="d-flex justify-content-center h100vh w-100 align-items-center">
+      <div class="spinner-border" role="status"></div>
+    </div>
+    <div id="allContentId" class="d-none">
+      <!---///////////-------	  Sidebar  -------///////////--------->
+      <div class="offcanvas offcanvas-start overflow-auto" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header d-flex flex-row-reverse" id="dd">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="container-fluid">
+          <h3 class="text-center p-2">এস. এস. সি পদার্থবিজ্ঞান</h3>
+          <ul class="list-unstyled components">
+            <li>
+              <div class="d-flex justify-content-between w-100 p-2 bg-light align-items-center my-2">
+                <button class="btn btn-transparent w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sideBarSubmenu2" aria-expanded="false" aria-controls="sideBarSubmenu2">বোর্ড প্রশ্ন ও উত্তর </button>
+                <img class="" src="triangle.png" alt="" style="width:8px;height:8px;transform:rotate(180deg);">
+              </div>
+              <ul class="list-unstyled collapse" id="sideBarSubmenu2">
+                <li id="dinBQ" onclick="dinBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">দিনাজপুর বোর্ড</a>
+                </li>
+                <li id="dhakaBQ" onclick="dhakaBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">ঢাকা বোর্ড</a>
+                </li>
+                <li id="rajBQ" onclick="rajBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">রাজশাহী বোর্ড</a>
+                </li>
+                <li id="sylhBQ" onclick="sylhBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">সিলেট বোর্ড</a>
+                </li>
+                <li id="barisalBQ" onclick="barisalBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">বরিশাল বোর্ড</a>
+                </li>
+                <li id="comilBQ" onclick="comilBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">কুমিল্লা বোর্ড</a>
+                </li>
+                <li id="chattBQ" onclick="chattBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">চট্টগ্রাম বোর্ড</a>
+                </li>
+                <li id="jessoBQ" onclick="jessoBQ()" class="w-100 ps-4 py-1 border-bottom">
+                  <a href="#" class="nav-link text-dark ">যশোর বোর্ড</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="d-flex justify-content-between w-100 p-2 bg-light align-items-center my-2">
+                <button class="btn btn-transparent w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sideBarSubmenu3" aria-expanded="false" aria-controls="sideBarSubmenu3">প্রত্যেক অধ্যায় বিশ্লেষন</button>
+                <img class="" src="triangle.png" alt="" style="width:8px;height:8px;transform:rotate(180deg);">
+              </div>
+              <ul class="list-unstyled collapse" id="sideBarSubmenu3">
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_1" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">১. ভৌত রাশি ও পরিমাপ</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_2" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">২. গতি</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_3" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৩. বল</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_4" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৪. কাজ , ক্ষমতা ও শক্তি</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_5" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৫. পদার্থের অবস্থা ও চাপ</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_6" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৬. বস্তুর ওপর তাপের প্রভাব</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_7" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৭. তরউঙ্গ ও শব্দ</a>
+                </li>
+                <li  class="w-100 ps-4 py-1 border-bottom" id="chap_8" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৮. আলোর প্রতিফলন </a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_9" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">৯. আলোর প্রতিসরন</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom" id="chap_10" onclick="eachChapExp(this.id)">
+                   <a href="#" class="nav-link text-dark ">১০. স্থির বিদ্যুৎ </a>
+			        	</li>
+			        	<li class=" w-100 ps-4 py-1 border-bottom" id="chap_11" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">১১. চল বিদ্যুৎ  </a>
+                </li>
+			        	<li class=" w-100 ps-4 py-1 border-bottom" id="chap_12" onclick="eachChapExp(this.id)">
+                  <a href="#"  class="nav-link text-dark ">১২. বিদ্যুতর চৌম্বক ক্রিয়া   </a>
+                </li>
+			        	<li class=" w-100 ps-4 py-1 border-bottom" id="chap_13" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">১৩. আধুনিক পদার্থবিজ্ঞান ও ইলেক্ট্রনিক্স  </a>
+                </li>
+				        <li class=" w-100 ps-4 py-1 border-bottom" id="chap_14" onclick="eachChapExp(this.id)">
+                  <a href="#" class="nav-link text-dark ">১৪. জীবন বাচাতে  পদার্থবিজ্ঞান  </a>
+                </li>
+              </ul>
+            <li>
+              <div class="d-flex justify-content-between w-100 p-2 bg-light align-items-center my-2">
+                <button class="btn btn-transparent w-100" type="button" data-bs-toggle="collapse" data-bs-target="#sideBarSubmenu4" aria-expanded="false" aria-controls="sideBarSubmenu4">মডেল প্রশ্ন</button>
+                <img class="" src="triangle.png" alt="" style="width:8px;height:8px;transform:rotate(180deg);">
+              </div>
+              <ul class="list-unstyled collapse" id="sideBarSubmenu4">
+                <li class="w-100 ps-4 py-1 border-bottom" id="model_1" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ১</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom"  id="model_2" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ২</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom"  id="model_3" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৩</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom"  id="model_4" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৪</a>
+                </li>
+                <li class="w-100 ps-4 py-1 border-bottom"  id="model_5" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৫</a>
+                </li>
+                <li  class="w-100 ps-4 py-1  border-bottom"  id="model_6" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৬</a>
+                </li>
+                <li  class="w-100 ps-4 py-1 border-bottom"  id="model_7" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৭</a>
+                </li>
+                <li  class="w-100 ps-4 py-1 border-bottom"  id="model_8" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৮</a>
+                </li>
+                <li  class="w-100 ps-4 py-1 border-bottom"  id="model_9" onclick="modelTest(this.id)">
+                   <a href="#" class="nav-link text-dark ">মডেল টেস্ট ৯</a>
+				        </li>
+			        	<li class=" w-100 ps-4 py-1  border-bottom"  id="model_10" onclick="modelTest(this.id)">
+                  <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১০ </a>
+                </li>
+			        	<li class=" w-100 ps-4 py-1  border-bottom"  id="model_11" onclick="modelTest(this.id)">
+                  <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১১ </a>
+                </li>
+				        <li class=" w-100 ps-4 py-1  border-bottom"  id="model_12" onclick="modelTest(this.id)">
+                  <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১২ </a>
+                </li>
+				        <li class=" w-100 ps-4 py-1  border-bottom"  id="model_13" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ১৩</a>
+                </li>
+                <li  class="w-100 ps-4 py-1 border-bottom"  id="model_14" onclick="modelTest(this.id)">
+                  <a href="#" class="nav-link text-dark ">মডেল টেস্ট ১৪</a>
+               </li>
+               <li class=" w-100 ps-4 py-1  border-bottom"  id="model_15" onclick="modelTest(this.id)">
+                 <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১৫ </a>
+               </li>
+               <li class=" w-100 ps-4 py-1  border-bottom"  id="model_16" onclick="modelTest(this.id)">
+                 <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১৬ </a>
+               </li>
+               <li class=" w-100 ps-4 py-1  border-bottom" id="model_17" onclick="modelTest(this.id)">
+                 <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১৭ </a>
+               </li>
+               <li class=" w-100 ps-4 py-1  border-bottom" id="model_18" onclick="modelTest(this.id)">
+                 <a href="#" class="nav-link text-dark ">মডেল টেস্ট ১৮</a>
+               </li>
+               <li class=" w-100 ps-4 py-1  border-bottom" id="model_19" onclick="modelTest(this.id)">
+                <a href="#"  class="nav-link text-dark ">মডেল টেস্ট ১৯ </a>
+              </li>
+              <li class=" w-100 ps-4 py-1  border-bottom" id="model_20" onclick="modelTest(this.id)">
+                <a href="#" class="nav-link text-dark ">মডেল টেস্ট ২০</a>
+              </li>
+              </ul>
+            </li>
+            <div class="d-flex justify-content-between w-100 p-2 bg-light align-items-center my-2">
+              <button  class="btn btn-transparent w-100" type="button"  data-bs-toggle="modal" data-bs-target=".staticBackdrop">যোগাযোগ </button>
+            </div>
+            <div class="d-flex justify-content-between w-100 p-2 bg-light align-items-center my-2">
+              <button  class="btn btn-transparent w-100" type="button"  data-bs-toggle="modal" data-bs-target=".staticBackdrop">অ্যাঁপস কন্ট্রোলার</button>
+            </div>
+          </ul>
+          <div class="spacer"></div>
+          <hr style="width:80%;margin:auto;">
+          <div class="spacer"></div>
+          <div class="">
+            <button class="btn w-100 p-2 btn-info my-2 text-white"  data-bs-toggle="modal" data-bs-target=".staticBackdrop">ফ্রী অনলাইন পরীক্ষা</button>
+            <button class="btn w-100 p-2 btn-primary my-1 mb-3 text-white"  data-bs-toggle="modal" data-bs-target=".staticBackdrop">ক্লাস ভিডিও</button>
+            <button onclick="location.reload(); " class="p-2 btn btn-warning my-1 w-100 mb-5 text-white">হোম পেজ</button>
+          </div>
+        </div>
+      </div>
+      <!-- Side bar end  -->
+      <!-- Page Content  -->
+  <div id="content">
+      <!--///////  dinajpur board Question and answer sections start//////-->
+      <div id="dinajPurSec">
+              <!-- Page toogler nav bar start -->
+              <nav class="navbar bg-info  sticky-top shadow">
+                <div class="container-fluid py-2">
+                  <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+                    <img src="open-menu.png" alt="" style="width:20px;height:auto;">ক্লিক করুন
+                  </button>
+                  <span class="ml-2 bg-light rounded p-2" id="topHeaderID">পদার্থবিজ্ঞান</span>
+                </div>
+              </nav>
+              <!-- Page toogler nav bar end -->
+              <!-- Page Home section here -->
+              <div class="container-fluid" id="heroSec">
+                <marquee>
+                  <h5 class="text-danger mt-2">সাইটটি ডেভেলপ মেন্ট এর কাজ চলছে । অতি দ্রুত কাজ সম্পূর্ণ হবে ।</h5>
+                </marquee>
+                <img src="5294.jpg" class="w-100 h-auto mt-3">
+                <p class="lead mt-2 text-justify"> পরিক্ষায় ভাল ফলাফল করার জন্য বিগত বছরের প্রশ্নাবলী সম্পর্কে জ্ঞ্যান রাখা উচিৎ । যা তোমাকে আত্মবিশ্বাসী করে তুলবে । এই অ্যাঁপ্সটির মাধ্যমে আমরা তোমাকে বোর্ড প্রশ্ন সম্পর্কে ক্ষুদ্র ধারণা দেয়ার চেষ্টা করেছি ।</p>
+              </div>
+              <div id="dinajpurBQA" class="text-white">
+                <!-- Page sticky header section here -->
+                <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+                  <div class="">
+                    <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                      <a id="" href="#mcqDin">এম সি কিউ</a>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                      <a id="" href="#cqDin">লিখিত</a>
+                    </button>
+                    <button type="button" class="btn btn-info btn-sm rounded m-1">
+                      <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+                    </button>
+                  </div>
+                  <!-- sticky header btns dinajpur board -->
+                  <div class="">
+                    <button id="din_act_id_1" onclick="data_act_btn(this.id)" type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৭</a>
+                    </button>
+                    <button id="din_act_id_2" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৮</a>
+                    </button>
+                    <button id="din_act_id_3" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৯</a>
+                    </button>
+                    <button id="din_act_id_4" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০২০</a>
+                    </button>
+                    <button id="din_act_id_5" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০২১</a>
+                    </button>
+                  </div>
+                </div>
+                
+                <div id="din_board" class="container-fluid bg-white">
+                  <h1 id="mcqDin" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+                  <div class="quesMCQ bg-light py-3">
+                    <div id="dynamicMcqDin" class="row">
+                  <!--  Here loaded dynamacally mcq questions   -->
+                    </div>
+                  </div>
+                  <h1 id="cqDin" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+                  <div class="quesWritten bg-light py-3">
+                    <div id="dynamicCqDin" class="row">
+                  <!--  Here loaded dynamacally cq questions   -->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+      <!--///////  dinajpur board Question and answer sections end//////-->
+
+
+      <!--///////  Dhaka board Question and answer sections start//////-->
+      <div id="dhakaSec">
+              <!-- Page toogler nav bar start -->
+              <nav class="navbar bg-info  sticky-top shadow">
+                <div class="container-fluid py-2">
+                  <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+                    <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+                  </button>
+                  <span class="ml-2 bg-light rounded p-2" id="topHeaderID">ঢাকা বোর্ড</span>
+                </div>
+              </nav>
+              <!-- Page toogler nav bar end -->
+              <!-- Page Home section here -->
+              <div id="dhakaBQA" class="text-white">
+                <!-- Page sticky header section here -->
+                <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+                  <div class="">
+                    <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                      <a id="" href="#mcq_dhaka_header_id">এম সি কিউ</a>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                      <a id="" href="#cq_dhaka">লিখিত</a>
+                    </button>
+                    <button type="button" class="btn btn-info btn-sm rounded m-1">
+                      <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+                    </button>
+                  </div>
+                  <!-- sticky header btns dinajpur board -->
+                  <div class="">
+                    <button id="dha_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৭</a>
+                    </button>
+                    <button id="dha_act_id_2" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৮</a>
+                    </button>
+                    <button id="dha_act_id_3" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০১৯</a>
+                    </button>
+                    <button id="dha_act_id_4" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০২০</a>
+                    </button>
+                    <button id="dha_act_id_5" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                      <a href="#">২০২১</a>
+                    </button>
+                  </div>
+                </div>
+                
+                <div id="din_board" class="container-fluid bg-white">
+                  <h1 id="mcq_dhaka_header_id" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+                  <div class="quesMCQ bg-light py-3">
+                    <div id="dynamicMcqDha" class="row">
+
+                    </div>
+                  </div>
+                  <h1 id="cq_dhaka" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+                  <div class="quesWritten bg-light py-3">
+                    <div id="dynamicCqDha" class="row">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+      <!--///////  Dhaka board Question and answer sections end//////-->
+
+      <!--///////  Rajshahi board Question and answer sections start//////-->
+      <div id="rajshSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">রাজশাহী বোর্ড</span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <!-- Page Home section here -->
+        <div id="dhakaBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_raj_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_raj_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="raj_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="raj_act_id_2"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="raj_act_id_3"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="raj_act_id_4" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="raj_act_id_5" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_raj_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqRaj" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_raj_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqRaj" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--///////  Rajshahi board Question and answer sections end//////-->
+
+
+      <!--///////  Sylhet board Question and answer sections start//////-->
+      <div id="sylhetSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">সিলেট বোর্ড</span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <div id="dinajpurBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_syl_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_syl_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="syl_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="syl_act_id_2" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="syl_act_id_3" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="syl_act_id_4" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="syl_act_id_5" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_syl_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqSyl" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_syl_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqSyl" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--///////  Sylhet board Question and answer sections end//////-->
+
+      <!--///////  Barisal board Question and answer sections start//////-->
+      <div id="barisalSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">বরিশাল বোর্ড</span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <div id="dinajpurBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_bari_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_bari_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="bar_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="bar_act_id_2"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="bar_act_id_3"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="bar_act_id_4"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="bar_act_id_5"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_bari_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqBari" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_bari_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqBari" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <!--///////  Barisal board Question and answer sections end//////-->
+
+
+      <!--///////  Comilla board Question and answer sections start//////-->
+      <div id="comillaSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">কুমিল্লা বোর্ড </span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <div id="dinajpurBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_comi_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_comi_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="com_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="com_act_id_2" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="com_act_id_3" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="com_act_id_4"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="com_act_id_5" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_comi_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqComi" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_comi_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqComi" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--///////  Comilla board Question and answer sections end//////-->
+
+
+      <!--///////  Chittagong board Question and answer sections start//////-->
+      <div id="chittaSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">চট্টগ্রাম বোর্ড</span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <div id="dinajpurBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_chit_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_chit_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="chit_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="chit_act_id_2"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="chit_act_id_3"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="chit_act_id_4"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="chit_act_id_5"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_chit_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqChita" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_chit_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqChita" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--///////  Chittagong board Question and answer sections end//////-->
+
+
+      <!--///////  jessore board Question and answer sections start//////-->
+      <div id="jessoreSec">
+        <!-- Page toogler nav bar start -->
+        <nav class="navbar bg-info  sticky-top shadow">
+          <div class="container-fluid py-2">
+            <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+              <img src="open-menu.png" alt="" style="width:20px;height:auto;">
+            </button>
+            <span class="ml-2 bg-light rounded p-2" id="topHeaderID">যশোর বোর্ড</span>
+          </div>
+        </nav>
+        <!-- Page toogler nav bar end -->
+        <div id="dinajpurBQA" class="text-white">
+          <!-- Page sticky header section here -->
+          <div id="stichy_header" class="sticky-top bg-light w-100 p-1 shadow d-flex justify-content-between align-items-center">
+            <div class="">
+              <button type="button" class="btn btn-danger btn-sm rounded m-1">
+                <a id="" href="#mcq_jes_h">এম সি কিউ</a>
+              </button>
+              <button type="button" class="btn btn-primary btn-sm rounded m-1">
+                <a id="" href="#cq_jes_h">লিখিত</a>
+              </button>
+              <button type="button" class="btn btn-info btn-sm rounded m-1">
+                <a href="#" class="nav-link text-white">শুরুতে আসুন</a>
+              </button>
+            </div>
+            <!-- sticky header btns dinajpur board -->
+            <div class="">
+              <button id="jess_act_id_1" onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৭</a>
+              </button>
+              <button id="jess_act_id_2"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৮</a>
+              </button>
+              <button id="jess_act_id_3"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০১৯</a>
+              </button>
+              <button id="jess_act_id_4" onclick="data_act_btn(this.id)"   type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২০</a>
+              </button>
+              <button id="jess_act_id_5"  onclick="data_act_btn(this.id)"  type="button" class="btn btn-success btn-sm rounded m-1">
+                <a href="#">২০২১</a>
+              </button>
+            </div>
+          </div>
+          
+          <div id="din_board" class="container-fluid bg-white">
+            <h1 id="mcq_jes_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড ছোট প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesMCQ bg-light py-3">
+              <div id="dynamicMcqJess" class="row">
+
+              </div>
+            </div>
+            <h1 id="cq_jes_h" class="text-center bg-dark text-info py-5 px-2 h1">দিনাজপুর বোর্ড লিখিত প্রশ্নাবলী ২০১৭</h1>
+            <div class="quesWritten bg-light py-3">
+              <div id="dynamicCqJess" class="row">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--///////  jessore board Question and answer sections end//////-->
+
+              <!-- Page Content text end here -->
+  </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+   <!-- section for each chaprter explanation -->
+   
+   <div id="eachChapExp" class="d-none">
+
+    <nav class="navbar bg-info  sticky-top shadow">
+      <div class="container-fluid py-2">
+        <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+          <img src="open-menu.png" alt="" style="width:20px;height:auto;">ক্লিক করুন
+        </button>
+        <span class="ml-2 bg-light rounded p-2" id="eachChapHeader"></span>
+      </div>
+    </nav>
+
+
+
+
+    <div class="mt-2 d-flex justify-content-between align-items-center">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns1" aria-expanded="false" aria-controls="collapseExample"> এই অধ্যায়ের গুরুত্বপূর্ণ টপিকস সাথে পড়াশোনা <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"> </button>	
+    </div>
+    <div class="collapse show" id="collapseAns1">
+      <div class="card card-body">
+        <h2 class="h2 text-center bg-light p-2 my-3">প্রথমেই দেখে নেয়া যাক এই অধ্যায়ের মুল বিষয় গুলো </h2>
+        <ul id="eachChapTopi">
+          
+        </ul>
+        <p class="bg-light p-2 my-1 text-dark">টপিকস বিশ্লেষণ</p>
+        <div id="eachChapTopiExp">
+
+        </div>
+      </div>
+    </div>
+  
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns7" aria-expanded="false" aria-controls="collapseExample"> ম্যাথ বিশ্লেষণ <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns7">
+      <div class="card card-body" id="prob_expla_id">
+
+      </div>
+    </div>
+
+
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns2" aria-expanded="false" aria-controls="collapseExample"> বিগত বছরে আসা নানান বোর্ড প্রশ্ন বিশ্লেষণ <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns2">
+      <div class="card card-body">
+        <h5 class="text-dark bg-light p-2 my-2">M.C.Q প্রশ্নাবলী  </h5>
+				<div id="eachChapBoardQuesMcq" class="row py-2">
+					
+        </div>
+        <h5 class="text-dark bg-light p-2 my-2">  সৃজনশীল প্রশ্নাবলী </h5>
+        <div id="eachChapBoardQuesCq" class="row">
+
+        </div>
+      </div>
+    </div>
+   
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns3" aria-expanded="false" aria-controls="collapseExample"> স্বনামধন্য স্কুল কলেজ এর প্রশ্নাবলী <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns3">
+      <div class="card card-body">
+        <h5 class="text-dark bg-light p-2 my-2">M.C.Q প্রশ্নাবলী  </h5>
+				<div id="eachChapSchMcq" class="row py-2">
+
+        </div>
+        <h5 class="text-dark bg-light p-2 my-2">  সৃজনশীল প্রশ্নাবলী </h5>
+        <div id="eachChapSchCq" class="row">
+
+        </div>
+      </div>
+    </div>
+   
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns4" aria-expanded="false" aria-controls="collapseExample">এই অধ্যায়ের কোথায় জোর দেয়া প্রয়োজন <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns4">
+      <div id="impTopEachChap" class="card card-body">
+         
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns5" aria-expanded="false" aria-controls="collapseExample">এই অধ্যায়ের ভিডিও দেখব <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns5">
+      <div class="card card-body">
+        ভিডিও এর কাজ এখনও শেষ হয়নি । দ্রুত আপলোড করা হবে ।
+      </div>
+    </div>
+
+    <div class="mt-2">
+      <button class="btn btn-success w-100 mt-2 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAns6" aria-expanded="false" aria-controls="collapseExample">এই অধ্যায়ের পরিক্ষা দিব  <img class="" src="triangle.png" alt="" style="width:10px;height:10px;transform:rotate(180deg);"></button>
+    </div>
+    <div class="collapse" id="collapseAns6">
+      <div class="card card-body">
+        পরিক্ষা দেয়ার জন্যে আমাদের এই অ্যাপ্সটি ডাউনলোড করুন ।
+      </div>
+    </div>
+    <div class="spacerCustom"></div>
+
+   </div>
+<!-- model question -->
+   <div class="d-none" id="modelTest">
+    <nav class="navbar bg-info  sticky-top shadow">
+      <div class="container-fluid py-2">
+        <button type="button" id="" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample" class="btn">
+          <img src="open-menu.png" alt="" style="width:20px;height:auto;">ক্লিক করুন
+        </button>
+        <span class="ml-2 bg-light rounded p-2" id="eachModelHeader"></span>
+      </div>
+    </nav>
+    <div class="w-100 p-3 sticky-top shadow bg-white">
+      <button class="btn btn-sm btn-danger rounded"><a href="#mMcqId">এম সি কিউ</a></button>
+      <button class="btn btn-sm btn-info rounded"><a href="#mCqId">সৃজনশীল প্রশ্ন</a></button>
+      <button class="btn btn-sm btn-primary rounded"><a href="#">শুরুতে আসুন </a></button>
+    </div>
+    <h1 id="mMcqId" class="p-5 w-100 bg-light text-info my-2 text-center">এম সি কিউ প্রশ্নাবলী</h1>
+      <div class="container-fluid">
+        <div class="row" id="modelMcq">
+
+        </div>
+      </div>
+    <h1 id="mCqId" class="p-5 w-100 bg-light text-info my-2 text-center"> সৃজনশীল প্রশ্নাবলী</h1>
+      <div class="container-fluid">
+        <div class="row" id="modelCq">
+      
+        </div>
+      </div>
+
+   </div>
+</div>
+<!-- Modals for dinajpur board -->
+
+<!-- Modal for cq answer section-->
+<div class="modal fade cq_answer_modal" id="" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="staticBackdropLabel">সৃজনশীল প্রশ্নের উত্তর </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="madal_answer_view">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal for video section-->
+<div class="modal fade cq_video_modal" id="" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Our video section</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1 class="h1 text-danger text-center p-2 my-3">Sorry!! you will enjoy this featurs after few days .</h1>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal dinajpur board end -->
+
+
+    <!-- Modal for unfinished work-->
+<div class="modal fade staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">নোটিশ </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        আন্তরিক ভাবে দুঃখিত, এখনও কাজ সম্পূর্ণ হয়নি ।
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script src="json.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <script src="js.js"></script>
+  </body>
+</html>
